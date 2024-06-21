@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Churn Station </title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <!-- Use only one Font Awesome version -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+    <header class="position-sticky top-0 ">
+        <nav class="navbar navbar-expand-sm navbar-custom navbar-toggleable-sm ">
+            <div class="container-fluid">
+                <a class="navbar-brand text-pink fw-bold" asp-area="" asp-controller="Home" asp-action="Index">Churn Station</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-pink fw-bold @(ViewData["ActivePage"] as string == "Home" ? "active" : "")"
+                               asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-pink fw-bold @(ViewData["ActivePage"] as string == "Flavours" ? "active" : "")"
+                               asp-area="" asp-controller="Home" asp-action="Flavours">Flavours</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-pink fw-bold @(ViewData["ActivePage"] as string == "About" ? "active" : "")"
+                               asp-area="" asp-controller="Home" asp-action="About">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-pink fw-bold @(ViewData["ActivePage"] as string == "Login" ? "active" : "")"
+                               asp-area="" asp-controller="Home" asp-action="Register">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="pb-3" style="margin-top: 90px;">
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="container-fluid bg-aliceblue text-dark mt-5">
+            <div class="row py-4">
+                <div class="col-md-4">
+                    <h5>Churn Station</h5>
+                    <p>Indulge in Delight, One Scoop at a Time.</p>
+                </div>
+                <div class="col-md-4 footer">
+                    <h5>Contact Us</h5>
+                    <p><i class="fab fa-instagram"></i> Churn_Station</p>
+                    <p><i class="fab fa-whatsapp"></i> +92 3341819174</p>
+                    <p><i class="fab fa-facebook"></i> Churn Station</p>
+                    <p><i class="fas fa-envelope"></i> info.churnstation.com</p>
+                </div>
+                <div class="col-md-4 ">
+                    <h5>Address</h5>
+                    <p>Lane 17, Sector C, DHA Phase II, Islamabad Capital Territory, Pakistan</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <p class="copyrights">
+        © Churn Station | Designed by Shoaib Ayub F21605030
+    </p>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
